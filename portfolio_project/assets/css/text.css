@@ -1,0 +1,64 @@
+/* General */
+
+.section-title {
+    font-size: 2vw;
+    color: #F4DCD6;
+    font-family: blenny, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    text-align: center;
+    position: relative;
+    top: 8%;
+}
+
+
+/* ---------- */
+.splash_trio{
+  margin-left: 5%;
+}
+
+
+#introMajor {
+    font-size: 1.3vw;
+    color: white;
+    text-align: left;
+    /*    left: -5%;*/
+    position: relative;
+    /*    top: 40%;*/
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#introSlogan {
+    font-size: 1.3vw;
+    color: white;
+    text-align: left;
+    position: relative;
+    /*    border-bottom: 1px #ebebeb solid;*/
+    font-family: 'Roboto Condensed', sans-serif;
+    transform: translateX(0px);
+    transition: all ease-out;
+}
+
+#introSlogan.slide {
+    transform: translateX(200px);
+}
+
+#slide-trigger-slogan {
+    text-align: center;
+    padding: 0px;
+    /*    border-bottom: 1px #ebebeb solid;*/
+    opacity: 1;
+    /*    transform:translateY(50px);*/
+    /*    transition: all 1s ease-out;*/
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+  .mobile {
+      font-size: 5vw;
+      text-align: center;
+  }
+  .splash_trio{
+    margin-top: 50%;
+  }
+}

@@ -1,0 +1,32 @@
+#splashInformation_box {
+    padding-top: 15%;
+    padding-left: 5%;
+}
+
+#home_name {
+    font-size: 3vw;
+    color: white;
+    font-family: blenny, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    text-align: left;
+    position: relative;
+}
+
+#home_majorminor{
+    font-size: 1.3vw;
+    color: white;
+    text-align: left;
+    position: relative;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#home_slogan {
+    font-size: 1.3vw;
+    color: white;
+    text-align: left;
+    position: relative;
+    font-family: 'Roboto Condensed', sans-serif;
+    transform: translateX(0px);
+    transition: all ease-out;
+}
