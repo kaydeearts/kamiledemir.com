@@ -1,5 +1,4 @@
 from portfolio_app.models import Profile, Link, Bio_Point, Project_Subgroup, Project_Post, About_Additional
-from rest_framework import generics
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -43,24 +42,3 @@ def index(request):
     "links": link_object,
     }
     return render(request, 'portfolio_app/index.html', context=objects_dict)
-
-# Django REST API Framework
-# # Profile
-# class Profile_ListCreate(generics.ListCreateAPIView):
-#     queryset = Profile.objects.all()
-#     serializer_class = Profile_Serializer
-#
-# # Link
-# class Link_ListCreate(generics.ListCreateAPIView):
-#     queryset = Link.objects.all()
-#     serializer_class = Link_Serializer
-#
-# # BioPoint
-# class BioPoint_ListCreate(generics.ListCreateAPIView):
-#     queryset = Bio_Point.objects.all()
-#     serializer_class = BioPoint_Serializer
-#
-# # Project
-# class Project_ListCreate(generics.ListCreateAPIView):
-#     queryset = Project_Post.objects.all()
-#     serializer_class = Project_Serializer
