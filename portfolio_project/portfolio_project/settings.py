@@ -25,9 +25,7 @@ SECRET_KEY = '#f-%9@lw5%=6oaf&g^3mh7p)2^^(081)bf4$vx733s$ja+!m1m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-'portfolioproject-env.eba-xsehmmme.us-west-2.elasticbeanstalk.com'
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -40,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfolio_app.apps.PortfolioAppConfig',
-    'rest_framework',
-    'frontend',
 ]
 
 MIDDLEWARE = [
