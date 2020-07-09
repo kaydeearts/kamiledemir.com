@@ -178,7 +178,7 @@
           {% for i in bio_points %}
             <p id="about_me_bioTitle"> {{ i.category}}</p>
             <ul id="about_me_bio_points_text">
-              {{ i.text}}
+              {{ i.text|linebreaks }}
             </ul>
           {% endfor %}
           </div>
