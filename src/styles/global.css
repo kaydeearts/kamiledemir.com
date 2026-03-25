@@ -1,9 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'blenny', sans-serif;
+  --font-handwriting: 'adobe-handwriting-ernie', sans-serif;
+  --font-body: 'adobe-aldine', sans-serif;
+
+  --color-bg: #EAE5DC;
+  --color-sage: #8FAD8A;
+  --color-dark: #2B2826;
+  --color-blue: #2B6FED;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-dark);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utility used by JS to toggle visibility */
+.hidden {
+  display: none !important;
 }

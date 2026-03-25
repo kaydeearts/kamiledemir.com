@@ -1,45 +1,40 @@
 ---
+import '../styles/nav.css';
+
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#community', label: 'Community' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#about', label: 'about' },
+  { href: '#experience', label: 'experience' },
+  { href: '#community', label: 'community' },
 ];
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-slate-200/60">
-  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="/" class="font-semibold text-slate-900 hover:text-indigo-600 transition-colors">
-      Kamile Demir
-    </a>
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo">KD</a>
 
-    <ul class="hidden md:flex items-center gap-8">
+    <ul class="nav__links">
       {navLinks.map((link) => (
         <li>
-          <a href={link.href} class="text-sm text-slate-600 hover:text-slate-900 transition-colors">
-            {link.label}
-          </a>
+          <a href={link.href} class="nav__link">{link.label}</a>
         </li>
       ))}
     </ul>
 
-    <button id="menu-btn" class="md:hidden p-2 -mr-2 text-slate-600 hover:text-slate-900" aria-label="Toggle menu">
-      <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <button id="menu-btn" class="nav__hamburger" aria-label="Toggle menu">
+      <svg id="icon-open" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
-      <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg id="icon-close" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" class="hidden">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
   </div>
 
-  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white">
-    <ul class="max-w-5xl mx-auto px-6 py-4 flex flex-col gap-4">
+  <div id="mobile-menu" class="nav__mobile hidden">
+    <ul class="nav__mobile-links">
       {navLinks.map((link) => (
         <li>
-          <a href={link.href} class="text-sm text-slate-600 hover:text-slate-900 transition-colors">
-            {link.label}
-          </a>
+          <a href={link.href} class="nav__link">{link.label}</a>
         </li>
       ))}
     </ul>

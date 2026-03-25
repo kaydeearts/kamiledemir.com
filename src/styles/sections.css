@@ -1,0 +1,8 @@
+.section {
+  padding: 6rem 3rem;
+}
+
+.section__inner {
+  max-width: 72rem;
+  margin: 0 auto;
+}
