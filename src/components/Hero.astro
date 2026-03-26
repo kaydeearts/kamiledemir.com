@@ -1,5 +1,13 @@
 ---
 import '../styles/hero.css';
+import { readdir } from 'fs/promises';
+import { join } from 'path';
+
+const heroDir = join(process.cwd(), 'public/images/hero');
+const files = await readdir(heroDir);
+const images = files
+  .filter(f => /\.(jfif|jpg|jpeg|png|webp|gif)$/i.test(f))
+  .map(f => `/images/hero/${f}`);
 ---
 
 <section id="hero" class="hero">
@@ -17,18 +25,7 @@ import '../styles/hero.css';
   </div>
 </section>
 
-<script>
-  const images = [
-    '/images/hero/interviewing_maria_yap.jfif',
-    '/images/hero/interviewing_maria_yap_2.jfif',
-    '/images/hero/interviewing_gloria_chen_2.jfif',
-    '/images/hero/unicode_presentation_typecon_24.webp',
-    '/images/hero/emoji_presentation_typecon_23.jfif',
-    '/images/hero/kamile_max_2.jfif',
-    '/images/hero/typecon_kamile_promo.jfif',
-    '/images/hero/max_kamile_promo.jfif',
-  ];
-
+<script define:vars={{ images }}>
   // Preload all images so swaps are instant
   images.forEach(src => { const img = new Image(); img.src = src; });
 
@@ -38,13 +35,13 @@ import '../styles/hero.css';
     [images[i], images[j]] = [images[j], images[i]];
   }
 
-  const slots = Array.from(document.querySelectorAll<HTMLImageElement>('.hero__photo'));
+  const slots = Array.from(document.querySelectorAll('.hero__photo'));
   const current = slots.map((slot, i) => {
     slot.src = images[i];
     return i;
   });
 
-  function getNextIndex(slotIndex: number) {
+  function getNextIndex(slotIndex) {
     const showing = new Set(current);
     let next = (current[slotIndex] + 1) % images.length;
     while (showing.has(next) && next !== current[slotIndex]) {
@@ -53,23 +50,21 @@ import '../styles/hero.css';
     return next;
   }
 
-  const FADE_DURATION = 1200;  // ms — matches the CSS transition
-  const HOLD_DURATION = 3000; // ms — how long each photo shows before next swap
+  const FADE_DURATION = 1200;
+  const HOLD_DURATION = 3000;
 
-  function swapNext(slotIndex: number) {
+  function swapNext(slotIndex) {
     const slot = slots[slotIndex];
     slot.classList.add('is-swapping');
     setTimeout(() => {
       current[slotIndex] = getNextIndex(slotIndex);
       slot.src = images[current[slotIndex]];
       slot.classList.remove('is-swapping');
-      // After this slot finishes fading back in, start the next one
       setTimeout(() => {
         swapNext((slotIndex + 1) % slots.length);
       }, HOLD_DURATION);
     }, FADE_DURATION);
   }
 
-  // Let all three show at full opacity first, then begin cycling
   setTimeout(() => swapNext(0), 4000);
 </script>

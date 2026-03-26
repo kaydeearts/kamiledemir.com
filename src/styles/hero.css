@@ -71,6 +71,49 @@
   --duration: 7s;
 }
 
+/* ── Mobile ── */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 5rem 1.5rem 3rem;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero__photos {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .hero__photo {
+    position: relative;
+    height: 180px;
+    width: 47%;
+    max-width: none;
+  }
+
+  .hero__photo--1,
+  .hero__photo--2,
+  .hero__photo--3 {
+    top: auto;
+    left: auto;
+    right: auto;
+    translate: none;
+  }
+
+  .hero__photo--2 {
+    display: none;
+  }
+}
+
+/* ── Typography ── */
+
 .hero__greeting {
   font-family: var(--font-display);
   font-weight: 700;
