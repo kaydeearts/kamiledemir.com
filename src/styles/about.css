@@ -1,0 +1,249 @@
+.about__layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__photo {
+  width: 100%;
+  border-radius: 8px;
+  position: sticky;
+  top: 6rem;
+}
+
+.about__intro {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.8;
+  margin: 0 0 1.5rem;
+}
+
+.about__intro:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .about__layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about__photo {
+    position: static;
+    max-width: 240px;
+  }
+}
+
+/* ── Journey section ── */
+
+.about__journey {
+  margin-top: 4rem;
+}
+
+.about__journey-layout {
+  display: grid;
+  grid-template-columns: 1fr 260px 20px;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* ── Map ── */
+
+.about__map-wrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+.about__map {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: invert(1) sepia(1) hue-rotate(90deg) saturate(2) brightness(0.5) opacity(0.9);
+}
+
+.about__map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ── Dots ── */
+
+.about__dots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  position: sticky;
+  top: 6rem;
+}
+
+.about__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-dark);
+  opacity: 0.2;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.about__dot.is-active {
+  background: var(--color-sage);
+  opacity: 1;
+}
+
+/* ── Journey path ── */
+
+.journey-path {
+  fill: none;
+  stroke: var(--color-sage);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 5;
+  opacity: 0.6;
+}
+
+/* ── Pins ── */
+
+.pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin__pulse {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-sage);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pin__bg {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-sage);
+  border: 2px solid var(--color-bg);
+  color: var(--color-bg);
+  font-size: 13px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.pin:hover .pin__pulse,
+.pin.is-active .pin__pulse {
+  opacity: 0.25;
+}
+
+.pin.is-active .pin__bg {
+  background: var(--color-blue);
+}
+
+/* ── Info panel ── */
+
+.about__panel {
+  position: sticky;
+  top: 6rem;
+}
+
+.about__stop {
+  display: none;
+}
+
+.about__stop.is-active {
+  display: block;
+  animation: stop-in 0.3s ease;
+}
+
+@keyframes stop-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.about__stop-number {
+  font-family: var(--font-handwriting);
+  font-size: 3.5rem;
+  color: var(--color-sage);
+  opacity: 0.25;
+  line-height: 1;
+  margin: 0 0 0.75rem;
+}
+
+.about__stop-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--color-dark);
+  opacity: 0.08;
+  border-radius: 6px;
+  margin: 0 0 1.25rem;
+}
+
+.about__stop-city {
+  font-family: var(--font-handwriting);
+  font-size: 1.5rem;
+  color: var(--color-dark);
+  margin: 0 0 0.25rem;
+}
+
+.about__stop-subtitle {
+  font-size: 0.75rem;
+  color: var(--color-sage);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.75rem;
+}
+
+.about__stop-text {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 768px) {
+  .about__journey-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about__panel {
+    position: static;
+  }
+
+  .about__dots {
+    flex-direction: row;
+    justify-content: center;
+    position: static;
+    padding-top: 0;
+  }
+}

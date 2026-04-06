@@ -23,6 +23,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+/* Section header label */
+.section__label {
+  font-family: var(--font-handwriting);
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  color: var(--color-sage);
+  font-weight: 500;
+  margin: 0 0 1rem;
+}
+
 /* Utility used by JS to toggle visibility */
 .hidden {
   display: none !important;

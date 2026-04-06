@@ -1,8 +1,158 @@
 ---
 import '../styles/sections.css';
+import '../styles/about.css';
+
+// Pin positions as % of the SVG viewBox (0 0 2000 857), equirectangular projection
+// x = (lon + 180) / 360 * 100
+// y = (90 - lat) / 180 * 100
+const stops = [
+  {
+    id: 1,
+    city: 'Almaty, Kazakhstan',
+    subtitle: 'Where it began',
+    x: 68.9,
+    y: 23.3,
+    text: 'Where I was born and spent my summers walking along the artist\'s square, taking painting classes, and looking up at the striking mountains.',
+  },
+  {
+    id: 2,
+    city: 'Bodrum, Turkey',
+    subtitle: 'Growing up',
+    x: 59.7,
+    y: 28.4,
+    text: 'Where I spent most of my early childhood, running through the chamomile fields I was named after and swimming in the glimmering Mediterranean sea.',
+  },
+  {
+    id: 3,
+    city: 'New York City',
+    subtitle: 'Finding my feet',
+    x: 29.5,
+    y: 27.4,
+    text: 'After-school theater rehearsals, summer art critique programs, and tech events had me all over the city — and I frequented Kazakh and Turkish restaurants for a taste of nostalgia.',
+  },
+  {
+    id: 4,
+    city: 'Bay Area, California',
+    subtitle: 'Starting my career',
+    x: 17.2,
+    y: 31.1,
+    text: 'A warm embrace that opened up my career and introduced me to the best colleagues, mentors, and peers. Conferences, farmers market runs, hikes, and board game nights turned colleagues into friends.',
+  },
+];
 ---
 
 <section id="about" class="section">
   <div class="section__inner">
+    <p class="section__label">About</p>
+
+    <div class="about__layout">
+      <div class="about__text">
+        <p class="about__intro">
+          I'm drawn to specialized domains where the tooling falls short. My work feels most
+          impactful when I build new workflows for experts who were otherwise working around
+          limitations. I enjoy the opportunity to get close to the work itself, learning the
+          ins and outs of a craft in order to build tools that truly fit how experts operate.
+          I work across the full stack, from low-level systems to modern web applications,
+          to bring these workflows to life.
+        </p>
+
+        <p class="about__intro">
+          I started my career as a font developer, and have worked across the entire font
+          tooling pipeline ever since. I supported typeface designers during their workflows,
+          and engineered their designs into working software. I've maintained font tooling
+          that required deep expertise in technical specifications like the OpenType standard.
+          After witnessing a noticeable gap in our business team's collaborative workflow with
+          foundry partners, I built a portal to address it.
+        </p>
+
+        <p class="about__intro">
+          Currently, I'm focused on helping users discover fonts by maintaining tools that
+          collect and annotate font metadata. I represent Adobe in the Unicode Technical
+          Committee, and participate in the Unicode Emoji Subcommittee — a personal passion
+          as much as a professional one.
+        </p>
+      </div>
+
+      <div class="about__sidebar">
+        <img class="about__photo" src="/images/profile_pic.jfif" alt="Kamilé Demir" />
+      </div>
+    </div>
+
+    <!-- Journey map -->
+    <div class="about__journey">
+      <div class="about__journey-layout">
+
+        <div class="about__map-wrapper">
+          <!-- Base map -->
+          <img class="about__map" src="/images/world.svg" alt="World map" />
+
+          <!-- Journey path overlay -->
+          <svg class="about__map-overlay" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path
+              class="journey-path"
+              d="M 68.9,23.3 L 59.7,28.4 Q 44.6,17 29.5,27.4 L 17.2,31.1"
+            />
+          </svg>
+
+          <!-- Pins -->
+          {stops.map(stop => (
+            <button
+              class="pin"
+              data-id={String(stop.id)}
+              style={`left: ${stop.x}%; top: ${stop.y}%;`}
+              aria-label={stop.city}
+            >
+              <span class="pin__pulse"></span>
+              <span class="pin__bg">{stop.id}</span>
+            </button>
+          ))}
+        </div>
+
+        <!-- Info panel -->
+        <div class="about__panel">
+          {stops.map(stop => (
+            <div class="about__stop" data-stop={String(stop.id)}>
+              <p class="about__stop-number">0{stop.id}</p>
+              <div class="about__stop-image"></div>
+              <h3 class="about__stop-city">{stop.city}</h3>
+              <p class="about__stop-subtitle">{stop.subtitle}</p>
+              <p class="about__stop-text">{stop.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Dots -->
+        <div class="about__dots">
+          {stops.map(stop => (
+            <button class="about__dot" data-id={String(stop.id)} aria-label={stop.city} />
+          ))}
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
+
+<script>
+  const pins = document.querySelectorAll<HTMLElement>('.pin');
+  const stops = document.querySelectorAll<HTMLElement>('.about__stop');
+  const dots = document.querySelectorAll<HTMLElement>('.about__dot');
+
+  function setActive(id: string) {
+    stops.forEach(s => s.classList.toggle('is-active', s.dataset.stop === id));
+    pins.forEach(p => p.classList.toggle('is-active', p.dataset.id === id));
+    dots.forEach(d => d.classList.toggle('is-active', d.dataset.id === id));
+  }
+
+  setActive('1');
+
+  pins.forEach(pin => {
+    pin.addEventListener('mouseenter', () => setActive(pin.dataset.id!));
+    pin.addEventListener('click', () => setActive(pin.dataset.id!));
+  });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => setActive(dot.dataset.id!));
+  });
+</script>
