@@ -12,6 +12,7 @@ const stops = [
     subtitle: 'Where it began',
     x: 68.9,
     y: 23.3,
+    photo: '/images/about/almaty.jpg',
     text: 'Where I was born and spent my summers walking along the artist\'s square, taking painting classes, and looking up at the striking mountains.',
   },
   {
@@ -20,6 +21,7 @@ const stops = [
     subtitle: 'Growing up',
     x: 59.7,
     y: 28.4,
+    photo: '/images/about/bodrum.webp',
     text: 'Where I spent most of my early childhood, running through the chamomile fields I was named after and swimming in the glimmering Mediterranean sea.',
   },
   {
@@ -28,6 +30,7 @@ const stops = [
     subtitle: 'Finding my feet',
     x: 29.5,
     y: 27.4,
+    photo: '/images/about/nyc.webp',
     text: 'After-school theater rehearsals, summer art critique programs, and tech events had me all over the city — and I frequented Kazakh and Turkish restaurants for a taste of nostalgia.',
   },
   {
@@ -36,6 +39,7 @@ const stops = [
     subtitle: 'Starting my career',
     x: 17.2,
     y: 31.1,
+    photo: '/images/about/bay_area.jpg',
     text: 'A warm embrace that opened up my career and introduced me to the best colleagues, mentors, and peers. Conferences, farmers market runs, hikes, and board game nights turned colleagues into friends.',
   },
 ];
@@ -74,7 +78,7 @@ const stops = [
       </div>
 
       <div class="about__sidebar">
-        <img class="about__photo" src="/images/profile_pic.jfif" alt="Kamilé Demir" />
+        <img class="about__photo" src="/images/profile_pic.PNG" alt="Kamilé Demir" />
       </div>
     </div>
 
@@ -113,7 +117,7 @@ const stops = [
           {stops.map(stop => (
             <div class="about__stop" data-stop={String(stop.id)}>
               <p class="about__stop-number">0{stop.id}</p>
-              <div class="about__stop-image"></div>
+              <img class="about__stop-image" src={stop.photo} alt={stop.city} />
               <h3 class="about__stop-city">{stop.city}</h3>
               <p class="about__stop-subtitle">{stop.subtitle}</p>
               <p class="about__stop-text">{stop.text}</p>
