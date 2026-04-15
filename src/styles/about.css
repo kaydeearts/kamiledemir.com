@@ -33,6 +33,12 @@
     gap: 2rem;
   }
 
+  .about__sidebar {
+    order: -1;
+    display: flex;
+    justify-content: center;
+  }
+
   .about__photo {
     position: static;
     max-width: 240px;

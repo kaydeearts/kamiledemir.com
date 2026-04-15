@@ -1,18 +1,3 @@
-.contact__email {
-  display: block;
-  font-family: var(--font-handwriting);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  color: var(--color-dark);
-  text-decoration: none;
-  margin-bottom: 3rem;
-  transition: color 0.2s ease;
-  line-height: 1.2;
-}
-
-.contact__email:hover {
-  color: var(--color-blue);
-}
-
 /* ── Links ── */
 
 .contact__links {
@@ -21,13 +6,21 @@
   margin: 0;
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact__item {
+  display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
-.contact__links li {
+.contact__icon {
   display: flex;
-  align-items: baseline;
-  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-sage);
+  flex-shrink: 0;
 }
 
 .contact__link-label {
@@ -54,8 +47,12 @@
 /* ── Mobile ── */
 
 @media (max-width: 768px) {
-  .contact__links li {
-    flex-direction: column;
-    gap: 0.25rem;
+  .contact__item {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .contact__link-label {
+    min-width: auto;
   }
 }

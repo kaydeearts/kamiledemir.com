@@ -147,6 +147,11 @@ const stops = [
   const pins = document.querySelectorAll<HTMLElement>('.pin');
   const stops = document.querySelectorAll<HTMLElement>('.about__stop');
   const dots = document.querySelectorAll<HTMLElement>('.about__dot');
+  const stopIds = Array.from(stops).map(s => s.dataset.stop!);
+
+  function getActiveId(): string {
+    return Array.from(stops).find(s => s.classList.contains('is-active'))?.dataset.stop ?? stopIds[0];
+  }
 
   function setActive(id: string) {
     stops.forEach(s => s.classList.toggle('is-active', s.dataset.stop === id));
@@ -164,4 +169,25 @@ const stops = [
   dots.forEach(dot => {
     dot.addEventListener('click', () => setActive(dot.dataset.id!));
   });
+
+  // Swipe to navigate on mobile
+  const panel = document.querySelector<HTMLElement>('.about__journey');
+  if (panel) {
+    let touchStartX = 0;
+
+    panel.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    panel.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) < 40) return;
+      const currentIndex = stopIds.indexOf(getActiveId());
+      if (dx < 0 && currentIndex < stopIds.length - 1) {
+        setActive(stopIds[currentIndex + 1]);
+      } else if (dx > 0 && currentIndex > 0) {
+        setActive(stopIds[currentIndex - 1]);
+      }
+    }, { passive: true });
+  }
 </script>
