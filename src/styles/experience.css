@@ -1,0 +1,84 @@
+/* ── Pillars ── */
+
+.experience__pillars {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience__pillar {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(43, 40, 38, 0.12);
+}
+
+.experience__pillar:last-child {
+  border-bottom: 1px solid rgba(43, 40, 38, 0.12);
+}
+
+.experience__number {
+  font-family: var(--font-handwriting);
+  font-size: 3.5rem;
+  color: var(--color-sage);
+  opacity: 0.4;
+  line-height: 1;
+  margin: 0;
+}
+
+.experience__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.4rem;
+}
+
+.experience__heading {
+  font-family: var(--font-handwriting);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  color: var(--color-dark);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.experience__text {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.8;
+  color: var(--color-dark);
+  opacity: 0.75;
+  max-width: 48rem;
+  margin: 0;
+}
+
+/* ── Resume link ── */
+
+.experience__resume {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-top: 3rem;
+}
+
+.experience__resume a {
+  color: var(--color-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.experience__resume a:hover {
+  color: var(--color-blue);
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 768px) {
+  .experience__pillar {
+    grid-template-columns: 50px 1fr;
+    gap: 1.25rem;
+    padding: 2rem 0;
+  }
+
+  .experience__number {
+    font-size: 2.5rem;
+  }
+}

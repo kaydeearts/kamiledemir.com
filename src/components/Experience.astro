@@ -1,8 +1,50 @@
 ---
 import '../styles/sections.css';
+import '../styles/experience.css';
+
+const pillars = [
+  {
+    number: '01',
+    heading: 'I dive deep into specifications',
+    text: 'I started my career maintaining a 25+ year old codebase — a suite of command line tools for font development. Implementing new features often meant reading deep into specifications and standards to understand what to build. That skill has stayed with me across desktop development, web services, and the full font creation and usage pipeline.',
+  },
+  {
+    number: '02',
+    heading: 'I find gaps and build solutions',
+    text: 'When I noticed the friction in the font intake process — both for external foundry partners and our internal teams — I proposed we build a portal to automate font testing, validation, and submission. Leading and developing that effort taught me to build resilient systems from the ground up, design for different users, and prioritize ruthlessly to get a project across the finish line.',
+  },
+  {
+    number: '03',
+    heading: 'I build with users, not just for them',
+    text: 'I build an internal platform that powers font discovery and recommendations across Adobe Creative Cloud. Every week I enjoy watching how annotators navigate the tools and implementing features to make their work easier — from quality of life improvements to larger bets like ML-assisted annotation. My most fulfilling work is when I can feel the difference it makes for the people using it.',
+  },
+  {
+    number: '04',
+    heading: 'I participate in industry standards',
+    text: "My involvement in standards began with emoji — reviewing, discussing, and voting on submissions in the Unicode Emoji Working Group. That work expanded into a broader role: I now serve as Adobe's primary representative to the Unicode Technical Committee, participating in quarterly meetings on character encoding and text standards.",
+  },
+];
 ---
 
 <section id="experience" class="section">
   <div class="section__inner">
+    <p class="section__label">Experience</p>
+
+    <div class="experience__pillars">
+      {pillars.map(pillar => (
+        <div class="experience__pillar">
+          <p class="experience__number">{pillar.number}</p>
+          <div class="experience__content">
+            <h3 class="experience__heading">{pillar.heading}</h3>
+            <p class="experience__text">{pillar.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="experience__resume">
+      To learn more, <a href="/Kamile_Demir_Resume.pdf" target="_blank" rel="noopener">see my resume</a>.
+    </p>
+
   </div>
 </section>
