@@ -45,6 +45,13 @@
   margin-top: 4rem;
 }
 
+.about__journey-label {
+  font-family: var(--font-handwriting);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--color-dark);
+  margin: 3rem 0 2rem;
+}
+
 .about__journey-layout {
   display: grid;
   grid-template-columns: 1fr 260px 20px;
