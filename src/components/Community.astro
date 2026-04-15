@@ -1,8 +1,83 @@
 ---
 import '../styles/sections.css';
+import '../styles/community.css';
+
+const speaking = {
+  heading: 'I speak publicly',
+  entries: [
+    {
+      venue: 'Adobe MAX 2023',
+      desc: 'Delivered an hour-long session on variable fonts for designers.',
+    },
+    {
+      venue: 'TypeCon 2024, TypeCon 2023, ATypI Tech Talk 2022',
+      desc: 'Presented on emoji and Unicode.',
+    },
+    {
+      venue: 'Fortune, Adobe Blog, WGN Radio',
+      desc: 'Featured discussing emoji and Unicode.',
+    },
+  ],
+  photos: [
+    { src: '/images/hero/emoji_presentation_typecon_23.jfif', alt: 'Emoji presentation at TypeCon 2023' },
+    { src: '/images/hero/unicode_presentation_typecon_24.webp', alt: 'Unicode presentation at TypeCon 2024' },
+    { src: '/images/max_promo.gif', alt: 'Adobe MAX promo' },
+    { src: '/images/max_whirlwind_photo.jfif', alt: 'Adobe MAX' },
+    { src: '/images/presenting_variable_fonts_max.jfif', alt: 'Presenting variable fonts at MAX' },
+    { src: '/images/typecon_kamile_promo.jfif', alt: 'TypeCon promo' },
+  ],
+};
+
+const community = {
+  heading: 'I invest in my community',
+  entries: [
+    {
+      venue: 'Co-Lead, Adobe San Jose Women in Engineering Network',
+      desc: 'Organize monthly networking lunches, skill workshops, and fireside chats with senior Adobe leaders.',
+    },
+    {
+      venue: 'Co-Led the Adobe Open Source Office',
+      desc: 'Helped Adobe teams launch open source projects and guided new contributors through the review process.',
+    },
+  ],
+  photos: [
+    { src: '/images/interviewing_gloria_chen.jfif', alt: 'Interviewing Gloria Chen' },
+    { src: '/images/SJ-women-in-eng.jfif', alt: 'SJ Women in Engineering' },
+    { src: '/images/hero/interviewing_maria_yap.jfif', alt: 'Interviewing Maria Yap' },
+    { src: '/images/SJ-women-in-eng-2.PNG', alt: 'SJ Women in Engineering' },
+    { src: '/images/hero/interviewing_tong_sun.jfif', alt: 'Interviewing Tong Sun' },
+  ],
+};
 ---
 
 <section id="community" class="section">
   <div class="section__inner">
+    <p class="section__label">Community</p>
+
+    {[speaking, community].map(block => (
+      <div class="community__block">
+        <h2 class="community__heading">{block.heading}</h2>
+
+        <ul class="community__entries">
+          {block.entries.map(entry => (
+            <li class="community__entry">
+              <span class="community__entry-venue">{entry.venue}</span>
+              <span class="community__entry-desc">{entry.desc}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="community__gallery">
+          {block.photos.map(photo => (
+            <img
+              class="community__gallery-img"
+              src={photo.src}
+              alt={photo.alt}
+            />
+          ))}
+        </div>
+      </div>
+    ))}
+
   </div>
 </section>

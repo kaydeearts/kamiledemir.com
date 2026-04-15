@@ -1,0 +1,112 @@
+/* ── Section label divider ── */
+
+#community .section__label {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(43, 40, 38, 0.12);
+  margin-bottom: 3rem;
+}
+
+/* ── Subsections ── */
+
+.community__block {
+  margin-bottom: 5rem;
+}
+
+.community__block:last-child {
+  margin-bottom: 0;
+}
+
+.community__heading {
+  font-family: var(--font-handwriting);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  color: var(--color-dark);
+  margin: 0 0 2rem;
+  line-height: 1.2;
+}
+
+/* ── Entries list ── */
+
+.community__entries {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.community__entry {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(43, 40, 38, 0.1);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.8;
+}
+
+.community__entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.community__entry-venue {
+  color: var(--color-sage);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  padding-top: 0.2rem;
+  line-height: 1.8;
+}
+
+.community__entry-desc {
+  color: var(--color-dark);
+  opacity: 0.85;
+}
+
+/* ── Photo gallery ── */
+
+.community__gallery {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-sage) rgba(43, 40, 38, 0.1);
+  padding-bottom: 0.75rem;
+}
+
+.community__gallery::-webkit-scrollbar {
+  height: 4px;
+}
+
+.community__gallery::-webkit-scrollbar-track {
+  background: rgba(43, 40, 38, 0.1);
+  border-radius: 2px;
+}
+
+.community__gallery::-webkit-scrollbar-thumb {
+  background: var(--color-sage);
+  border-radius: 2px;
+}
+
+.community__gallery-img {
+  height: 260px;
+  width: auto;
+  flex-shrink: 0;
+  border-radius: 8px;
+  scroll-snap-align: start;
+  object-fit: cover;
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 768px) {
+  .community__entry {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .community__gallery-img {
+    height: 200px;
+  }
+}
