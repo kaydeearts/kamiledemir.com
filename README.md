@@ -49,14 +49,6 @@ Drop images into `public/images/hero/`. Supported formats: `.jpg`, `.jpeg`, `.pn
 
 The hero section picks them up automatically — no code changes needed.
 
-## Fonts
-
-Fonts are loaded via Adobe Fonts (Typekit, project ID `qnu0rue`):
-
-- **blenny** — bold display headings
-- **adobe-handwriting-ernie** — handwritten subheadings
-- **adobe-aldine** — body and UI text
-
 ## Deployment
 
 The site is deployed via [Netlify](https://netlify.com), connected to this repo. Every push to `main` triggers an automatic deploy.
